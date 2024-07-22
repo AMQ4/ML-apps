@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV File Upload and Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Debt Collection Prediction Tool</h1>
+        <nav>
+            <ul>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#upload">Upload</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="how-it-works">
+            <h2>How It Works</h2>
+            <p>Simply upload your claims collection CSV file, and click on the "Predict" button that appears to get predictions for the next month's collections.</p>
+        </section>
+
+        <section id="upload">
+            <h2>Upload Your CSV File</h2>
+            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                <div class="drop-zone" id="dropZone">
+                    <p>Drag and drop your CSV file here or click to select</p>
+                    <input type="file" id="fileInput" name="file" class="file-input" accept=".csv">
+                </div>
+            </form>
+
+            <form id="predictForm" action="/predict" method="post" style="display: none;">
+                <button type="submit" id="predictButton">Next Month Prediction</button>
+            </form>
+        </section>
+
+        <section id="status">
+            <p id="statusMessage"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Debt Collection Prediction Tool.</p>
+        <p>Contact us at <a href="mailto:dummy@example.com">support@example.com</a></p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

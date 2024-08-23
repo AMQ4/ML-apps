@@ -1,6 +1,6 @@
 import pandas as pd
 from flask import Flask, render_template, request
-from utils.preprocessing import load_pipeline
+from utils.pipeline_loader import load_pipeline
 from utils.model import load_model
 
 app = Flask(__name__)
@@ -63,3 +63,4 @@ if __name__ == '__main__':
     Run the Flask application in debug mode.
     """
     app.run(debug=True)
+
